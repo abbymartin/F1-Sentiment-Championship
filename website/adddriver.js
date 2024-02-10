@@ -49,6 +49,90 @@ const colors = {
     stake: "#08c447"
 }
 
+let coords = {
+    "hamilton" : {
+        "x": [],
+        "y": []
+    },
+    "verstappen" : {
+        "x": [],
+        "y": []
+    },
+    "perez" : {
+        "x": [],
+        "y": []
+    },
+    "leclerc" : {
+        "x": [],
+        "y": []
+    },
+    "sainz" : {
+        "x": [],
+        "y": []
+    },
+    "russell" : {
+        "x": [],
+        "y": []
+    },
+    "stroll" : {
+        "x": [],
+        "y": []
+    },
+    "alonso" : {
+        "x": [],
+        "y": []
+    },
+    "ocon" : {
+        "x": [],
+        "y": []
+    },
+    "gasly" : {
+        "x": [],
+        "y": []
+    },
+    "zhou" : {
+        "x": [],
+        "y": []
+    },
+    "bottas" : {
+        "x": [],
+        "y": []
+    },
+    "albon" : {
+        "x": [],
+        "y": []
+    },
+    "sargeant" : {
+        "x": [],
+        "y": []
+    },
+    "norris" : {
+        "x": [],
+        "y": []
+    },
+    "piastri" : {
+        "x": [],
+        "y": []
+    },
+
+    "magnussen" : {
+        "x": [],
+        "y": []
+    },
+    "ricciardo" : {
+        "x": [],
+        "y": []
+    },
+    "hulkenberg" : {
+        "x": [],
+        "y": []
+    },
+    "tsunoda" : {
+        "x": [],
+        "y": []
+    }
+}
+
 function addDriver() {
     let driver = document.querySelector("#drivers")
     var value = driver.value;
@@ -84,4 +168,10 @@ function updatePage() {
     driverList.innerHTML = htmlToAppend;
 }
 
-
+function getScores() {
+    fetch("https://github.com/abbymartin/Hacklytics-2024/blob/main/sentiment-analysis/scores.json")
+        .then(response => response.json())
+        .then(json => console.log(json));
+    
+}
+getScores();
