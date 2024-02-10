@@ -1,5 +1,6 @@
 body {
     background-color: white;
+    margin: 0;
 }
 
 #info-bar {
@@ -7,6 +8,7 @@ body {
     display: flex;
     margin: 0px;
     font-family: 'F1 Regular', Arial;
+    padding: 5px;
 }
 
 .selector {
@@ -17,10 +19,25 @@ body {
 }
 
 #selected-drivers {
-    display:flex;
+    height:100%;
+    display: flex;
+    justify-content: center;
 }
 
 .selected-item {
     display: flex;
     padding: 5px;
+}
+
+#graph {
+    width: 100%;
+    margin: auto;
+}
+
+.remove-button {
+    display: block;
+    margin:auto;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
 }

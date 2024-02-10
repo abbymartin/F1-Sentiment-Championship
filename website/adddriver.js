@@ -50,7 +50,7 @@ function updatePage() {
     chosenDrivers.forEach(driver => {
         htmlToAppend += `<div class="selected-item">
                                 <p>${names[driver]}</p>
-                                <button class="remove-button" onClick="removeDriver(\``+ driver + `\`)">X</button>
+                                <button class="remove-button" onClick="removeDriver(\``+ driver + `\`)">x</button>
                             </div>`
         })
 
