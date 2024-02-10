@@ -11,33 +11,6 @@ body {
     padding: 5px;
 }
 
-h1, h2, h3, label{
-    color:white;
-}
-
-button{
-    padding:0.5em;
-    margin-left: 1em;
-    text-align: center;
-    color:rgb(24,24,24);
-    background-color:white;
-    border-width: 0.1em;
-}
-
-button:hover{
-    background-color: black;
-    color: white;
-}
-
-select{
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    margin-left: 1em;
-    text-align: center;
-    color:rgb(24,24,24);
-    background-color:white;
-}
-
 .selector {
     display: flex;
     align-items: center; 
