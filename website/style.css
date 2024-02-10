@@ -6,7 +6,7 @@ body {
     background-color: #e10600;
     display: flex;
     margin: 0px;
-   /* vertical-align: middle;*/
+    font-family: 'F1 Regular', Arial;
 }
 
 .selector {
