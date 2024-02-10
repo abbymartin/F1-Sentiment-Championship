@@ -45,10 +45,12 @@ select{
     padding-right: 5%;
 }
 
+
 #selected-drivers {
     height:100%;
     display: flex;
     justify-content: center;
+    font-family: 'F1 Regular', Arial;
 }
 
 .selected-item {
@@ -74,5 +76,6 @@ select{
     width: 20px;
     border-radius: 50%;
     display: block;
-    margin: auto;
+    margin-left: 0.5em;
+    margin-top: 1em;
   }
