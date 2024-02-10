@@ -169,9 +169,26 @@ function updatePage() {
 }
 
 function getScores() {
-    fetch("https://github.com/abbymartin/Hacklytics-2024/blob/main/sentiment-analysis/scores.json")
-        .then(response => response.json())
-        .then(json => console.log(json));
-    
+    for (const [key, value] of Object.entries(scores)) {
+        for(let i = 0; i < value.length; i++) {
+            if(coords[key] !== null) {
+                coords[key]["x"].push(new Date(value[i][0] * 1000));
+                coords[key]["y"].push(value[i][1] * value[i][3]);
+            }
+        }
+        //console.log(value);
+    }
+
+    // TESTER = document.getElementById('graph');
+
+	// Plotly.newPlot( TESTER, [{
+
+	// x: [1, 2, 3, 4, 5, 6],
+
+	// y: [1, 2, 4, 8, 16, 32] }], {
+
+	// margin: { t: 0 } } );
+
+    console.log(coords);
 }
-getScores();
+//getScores();
