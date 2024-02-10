@@ -3,41 +3,37 @@ from praw.models import MoreComments
 import json
 
 reddit = praw.Reddit(
-    # client ID and secrets
+    client_id="uPCgF409UGD24DOhuTolFA",
+    client_secret="QekIVpdFWDJAoAdRP3ANLoW__-JH2w",
+    password="FWL32tz*",
+    user_agent="prawluvr77",
+    username="prawluvr77",
 )
 
 subreddit = reddit.subreddit("formula1")
+
 terms = [
-    "Lewis", "Hamilton", "LH44",
-    "Max", "Verstappen", "MV33",
-    "Valtteri", "Bottas", "VB77",
-    "Charles", "Leclerc", "CL16",
-    "Daniel", "Ricciardo", "DR3",
-    "Lando", "Norris", "LN4",
-    "Carlos", "Sainz", "CS55",
-    "Sergio", "Perez", "SP11",
-    "Fernando", "Alonso", "FA14",
-    "Esteban", "Ocon", "EO31",
-    "Pierre", "Gasly", "PG10",
-    "Yuki", "Tsunoda", "YT22",
-    "Oscar", "Piastri", "OP81",
-    "Zhou", "Guanyu", "ZG24",
-    "Logan", "Sargeant", "LS2",
-    "Alex", "Albon", "AA23",
-    "George", "Russell", "GR63",
-    "Kevin", "Magnussen", "KM20",
-    "Nico", "Hulkenberg", "NH27",
-    "Lance", "Stroll", "LS18",
-    "Mercedes", "Toto", "Merc",
-    "Redbull", "Christian", "Horner", "RBR",
-    "Ferrari", "Frédéric", "Vasseur",
-    "McLaren", "Zak", 
-    "AstonMartin", "Krack",
-    "Alpine", "Laurent", "Rossi", 
-    "Stake", "Andreas", "Seidl", 
-    "AlphaTauri", "Franz", "VCARB",
-    "Williams", "James", "Vowels", 
-    "Haas", "Ayao", "Komatsu"
+    "Lewis",
+    "Max",
+    "Bottas", 
+    "Charles", 
+    "Daniel", 
+    "Lando", 
+    "Carlos", 
+    "Sergio", 
+    "Fernando", 
+    "Esteban", 
+    "Pierre", 
+    "Yuki", 
+    "Oscar",
+    "Zhou", 
+    "Logan", 
+    "Alex", 
+    "George", 
+    "Kevin", 
+    "Nico", 
+    "Lance",
+    "Race Discussion"
 ]
 
 comments = {
@@ -57,7 +53,7 @@ comments = {
     "Oscar" : [],
     "Zhou" : [],
     "Logan" : [],
-    "Alex" : [],
+    "Albon" : [],
     "George" : [],
     "Kevin" : [],
     "Hulkenberg" : [],
@@ -79,7 +75,8 @@ comments = {
     "AlphaTauri" : [], 
     "Franz" : [], 
     "VCARB" : [],
-    "Williams" : [], 
+    "Williams" : [],
+    "Alfa Romeo" : [], 
     "James" : [],  
     "Haas" : [], 
     "Ayao" : []
@@ -88,15 +85,20 @@ comments = {
 #print(comments)
 
 for term in terms:
-    for post in subreddit.search(term, sort="top", time_filter="year", limit=5):
+    for post in subreddit.search(term, sort="top", time_filter="year", limit=25):
         if post.num_comments > 100:
+            counter = 0
             for comment in post.comments:
+                if counter >= 1000:
+                    break
+                counter += 1
                 if isinstance(comment, MoreComments) or comment.body == "[deleted]":
                     continue
                 # Check if the comment mentions any drivers
                 for driver in comments.keys():
                     if driver in comment.body or driver.lower() in comment.body.lower():
-                        comments[driver].append(comment.body)
+                        comments[driver].append([comment.body, comment.created_utc, comment.score, comment.link_id])
+
 
 result = {}
 
