@@ -23,6 +23,32 @@ const names = {
     sargeant: "L. Sargeant"
 }
 
+const colors = {
+    verstappen: "#193044",
+    perez: "#586977",
+    leclerc: "#ff2800",
+    sainz: "#cc2000",
+    hamilton: "#a776bd",
+    russell: "#00f5d0",
+    stroll: "#00352f",
+    alonso: "#325d58",
+    ocon: "#e672bc",
+    gasly: "#cf66a9",
+    zhou: "#07b03f",
+    bottas: "#058931",
+    albon: "#4267f8",
+    sargeant: "#3452c6",
+    norris: "#ff8308",
+    piastri: "#ff9b39",
+    hulkenberg: "#000000",
+    magnussen: "#323232",
+    tsunoda: "#4c35e1",
+    ricciardo: "#35259d",
+    alphatauri: "#273f53",
+    alfaromeo: "#820000",
+    stake: "#08c447"
+}
+
 function addDriver() {
     let driver = document.querySelector("#drivers")
     var value = driver.value;
@@ -50,6 +76,7 @@ function updatePage() {
     chosenDrivers.forEach(driver => {
         htmlToAppend += `<div class="selected-item">
                                 <p>${names[driver]}</p>
+                                <span class="dot" style="background-color: ${colors[driver]};"></span>
                                 <button class="remove-button" onClick="removeDriver(\``+ driver + `\`)">x</button>
                             </div>`
         })
