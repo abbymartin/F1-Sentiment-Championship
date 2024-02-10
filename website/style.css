@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+}
+
+#info-bar {
+    background-color: #e10600;
+    display: flex;
+    margin: 0px;
+   /* vertical-align: middle;*/
+}
+
+.selector {
+    display: flex;
+    align-items: center; 
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#selected-drivers {
+    display:flex;
+}
+
+.selected-item {
+    display: flex;
+    padding: 5px;
+}

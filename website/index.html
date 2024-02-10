@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <html lang="en">
+    <meta charset="UTF-8">
+    <title>F1 Sentiment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="adddriver.js"></script>
+</head>
+
+<body>
+    <div id="info-bar">
+        <h1>F1 Sentiment Analysis</h1>
+    <div class="selector" id="driver-select">
+        <label for="drivers">Add a driver: </label>
+        <select name="drivers" id="drivers">
+            <option value="verstappen">Max Verstappen</option>
+            <option value="perez">Sergio Pérez</option>
+            <option value="hamilton">Lewis Hamilton</option>
+            <option value="alonso">Fernando Alonso</option>
+            <option value="leclerc">Charles Leclerc</option>
+            <option value="sainz">Carlos Sainz Jr.</option>
+            <option value="russell">George Russell</option>
+            <option value="piastri">Oscar Piastri</option>
+            <option value="stroll">Lance Stroll</option>
+            <option value="gasly">Pierre Gasly</option>
+            <option value="ocon">Esteban Ocon</option>
+            <option value="albon">Alex Albon</option>
+            <option value="tsunoda">Yuki Tsunoda</option>
+            <option value="bottas">Valtteri Bottas</option>
+            <option value="ricciardo">Daniel Ricciardo</option>
+            <option value="zhou">Zhou Guanyu</option>
+            <option value="magnussen">Kevin Magnussen</option>
+            <option value="sargeant">Logan Sargeant</option>
+        </select>
+
+        <button type="button" id="add-button" onClick="addDriver()">Add</button> 
+    </div>
+
+    <div class="selector" id="time-select">
+        <label for="time">Time range:</label>
+        <select name="time" id="time">
+            <option value="1y">1 year</option>
+            <option value="6m">6 months</option>
+            <option value="1m">1 month</option>
+            <option value="1w">1 week</option>
+            <option value="1d">1 day</option>
+        </select>
+    </div>
+    </div>
+
+    <div id="selected-drivers"></div>
+
+    <div id="tester" style="width:600px;height:250px;"></div>
+
+</body>
+<script>
+
+	TESTER = document.getElementById('tester');
+
+	Plotly.newPlot( TESTER, [{
+
+	x: [1, 2, 3, 4, 5],
+
+	y: [1, 2, 4, 8, 16] }], {
+
+	margin: { t: 0 } } );
+
+</script>
+</html> 
