@@ -15,6 +15,18 @@ h1, h2, h3, label{
     color:white;
 }
 
+#newsHeadline {
+    color:black;
+    font-family: 'F1 Regular', Arial;
+}
+
+.newsItem {
+    color:black;
+    font-family: Arial;
+    margin-left: 1em;
+    display:block;
+}
+
 button{
     padding:0.5em;
     margin-left: 1em;

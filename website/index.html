@@ -59,8 +59,18 @@
 
     <div id="graph"></div>
 
+    <div id="news">
+        <h1 id="newsHeadline"> Relevant News </h1>
+    </div>
+
+    
 </body>
 <script>
     getScores();
+    TESTER = document.getElementById('graph');
+    Plotly.newPlot( TESTER, [{
+    x: [],
+    y: [] }], {
+    } );
 </script>
 </html> 

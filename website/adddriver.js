@@ -177,9 +177,6 @@ for(let i=0; i<chosenDrivers.length; i++){
     driverTraces.push(driverTrace);
     //console.log(driverTraces);
 }
-
-
-
 Plotly.newPlot('graph', driverTraces);
 }
 
@@ -189,7 +186,21 @@ function getScores() {
         for(let i = 0; i < value.length; i++) {
             if(coords[key] !== null) {
                 coords[key]["x"].push(new Date(value[i][0] * 1000));
-                coords[key]["y"].push(value[i][1] * value[i][3]);
+                coords[key]["y"].push((value[i][1]*10) * value[i][3]);
+            }
+            if((value[i][1]*10) * value[i][3] > 10000){
+                fetch('https://api.reddit.com/api/info/?id='+value[i][2])
+                    .then(response => response.json())
+                    .then(data => {
+                        var news = document.createElement("a");
+                        news.setAttribute("class", "newsItem");
+                        news.innerHTML = data["data"]["children"][0]["data"]["title"];
+                        console.log(data["data"]["children"][0]["data"]["title"]);
+                        news.href = "https://reddit.com/" + value[i][2].substring(3);
+                        document.getElementById("news").appendChild(news);
+                    })
+                    .catch(error => console.error('Error:', error));
+                
             }
         }
         //console.log(value);
