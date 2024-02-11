@@ -24,29 +24,26 @@ const names = {
 }
 
 const colors = {
-    verstappen: "#193044",
-    perez: "#586977",
-    leclerc: "#ff2800",
-    sainz: "#cc2000",
-    hamilton: "#a776bd",
-    russell: "#00f5d0",
-    stroll: "#00352f",
-    alonso: "#325d58",
-    ocon: "#e672bc",
-    gasly: "#cf66a9",
-    zhou: "#07b03f",
-    bottas: "#058931",
-    albon: "#4267f8",
-    sargeant: "#3452c6",
-    norris: "#ff8308",
-    piastri: "#ff9b39",
-    hulkenberg: "#000000",
-    magnussen: "#323232",
-    tsunoda: "#4c35e1",
-    ricciardo: "#35259d",
-    alphatauri: "#273f53",
-    alfaromeo: "#820000",
-    stake: "#08c447"
+    "verstappen": "#193044",
+    "perez": "#586977",
+    "leclerc": "#ff2800",
+    "sainz": "#cc2000",
+    "hamilton": "#a776bd",
+    "russell": "#00f5d0",
+    "stroll": "#00352f",
+    "alonso": "#325d58",
+    "ocon": "#e672bc",
+    "gasly": "#cf66a9",
+    "zhou": "#07b03f",
+    "bottas": "#058931",
+    "albon": "#4267f8",
+    "sargeant": "#3452c6",
+    "norris": "#ff8308",
+    "piastri": "#ff9b39",
+    "hulkenberg": "#000000",
+    "magnussen": "#323232",
+    "tsunoda": "#4c35e1",
+    "ricciardo": "#35259d"
 }
 
 let coords = {
@@ -152,7 +149,6 @@ function removeDriver(driver) {
 }
 
 function updatePage() {
-    console.log(chosenDrivers);
 
     const driverList = document.querySelector('#selected-drivers');
     let htmlToAppend = "";
@@ -166,9 +162,29 @@ function updatePage() {
         })
 
     driverList.innerHTML = htmlToAppend;
+
+    let driverTraces = [];
+for(let i=0; i<chosenDrivers.length; i++){
+    var driverTrace = {
+        x: coords[chosenDrivers[i]]['x'],
+	    y: coords[chosenDrivers[i]]['y'],
+        mode: 'markers',
+        type: 'scatter',
+        name: chosenDrivers[i],
+        marker: { size: 8,
+              color: colors[chosenDrivers[i]] + "80" }
+    }
+    driverTraces.push(driverTrace);
+    //console.log(driverTraces);
+}
+
+
+
+Plotly.newPlot('graph', driverTraces);
 }
 
 function getScores() {
+    let sortX = [];
     for (const [key, value] of Object.entries(scores)) {
         for(let i = 0; i < value.length; i++) {
             if(coords[key] !== null) {
@@ -189,6 +205,6 @@ function getScores() {
 
 	// margin: { t: 0 } } );
 
-    console.log(coords);
+    //console.log(coords);
 }
-//getScores();
+
