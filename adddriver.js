@@ -188,7 +188,7 @@ function getScores() {
                 coords[key]["x"].push(new Date(value[i][0] * 1000));
                 coords[key]["y"].push((value[i][1]*10) * value[i][3]);
             }
-            if((value[i][1]*10) * value[i][3] > 10000){
+            if((value[i][1]*10) * value[i][3] > 35000){
                 fetch('https://api.reddit.com/api/info/?id='+value[i][2])
                     .then(response => response.json())
                     .then(data => {
@@ -203,19 +203,6 @@ function getScores() {
                 
             }
         }
-        //console.log(value);
     }
-
-    // TESTER = document.getElementById('graph');
-
-	// Plotly.newPlot( TESTER, [{
-
-	// x: [1, 2, 3, 4, 5, 6],
-
-	// y: [1, 2, 4, 8, 16, 32] }], {
-
-	// margin: { t: 0 } } );
-
-    //console.log(coords);
 }
 
