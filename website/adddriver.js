@@ -169,6 +169,7 @@ function updatePage() {
 }
 
 function getScores() {
+    let sortX = [];
     for (const [key, value] of Object.entries(scores)) {
         for(let i = 0; i < value.length; i++) {
             if(coords[key] !== null) {
@@ -176,6 +177,7 @@ function getScores() {
                 coords[key]["y"].push(value[i][1] * value[i][3]);
             }
         }
+        console.log(coords);
         //console.log(value);
     }
 
