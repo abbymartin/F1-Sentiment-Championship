@@ -164,20 +164,32 @@ function updatePage() {
     driverList.innerHTML = htmlToAppend;
 
     let driverTraces = [];
-for(let i=0; i<chosenDrivers.length; i++){
-    var driverTrace = {
-        x: coords[chosenDrivers[i]]['x'],
-	    y: coords[chosenDrivers[i]]['y'],
-        mode: 'markers',
-        type: 'scatter',
-        name: chosenDrivers[i],
-        marker: { size: 8,
-              color: colors[chosenDrivers[i]] + "80" }
-    }
+    for(let i=0; i<chosenDrivers.length; i++){
+        var driverTrace = {
+            x: coords[chosenDrivers[i]]['x'],
+            y: coords[chosenDrivers[i]]['y'],
+            mode: 'markers',
+            type: 'scatter',
+            name: chosenDrivers[i],
+            marker: { size: 8,
+                color: colors[chosenDrivers[i]] + "80" }
+        }
     driverTraces.push(driverTrace);
     //console.log(driverTraces);
-}
-Plotly.newPlot('graph', driverTraces);
+    }
+    var layout = {
+        yaxis: {
+            title: {
+            text: 'Sentiment Score',
+            font: {
+                family: 'F1 Regular',
+                size: 12,
+                color: 'black'
+                }
+            }
+        }
+    }
+    Plotly.newPlot('graph', driverTraces, layout);
 }
 
 function getScores() {
@@ -200,7 +212,6 @@ function getScores() {
                         document.getElementById("news").appendChild(news);
                     })
                     .catch(error => console.error('Error:', error));
-                
             }
         }
     }
