@@ -61,38 +61,6 @@
 
 </body>
 <script>
-    
     getScores();
-/* 
-	TESTER = document.getElementById('graph');
-
-	Plotly.newPlot( TESTER, [{
-
-	x: coords['albon']['x'],
-
-	y: coords['albon']['y'] }], {
-    mode: 'markers',
-    type: 'scatter'
-} ); */
-
-var yCoords = coords['ocon']['y'];
-var yColors = yCoords.map(function(y) {
-    return y > 0 ? 'green' : 'red';
-});
-console.log(yColors);
-
-var trace1 = {
-    x: coords['ocon']['x'],
-	y: coords['ocon']['y'],
-    mode: 'markers',
-    type: 'scatter',
-    marker: { size: 7,
-              color: yColors }
-};
-
-var data = [trace1];
-Plotly.newPlot('graph', data);
-
-
 </script>
 </html> 
